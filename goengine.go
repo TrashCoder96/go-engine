@@ -24,12 +24,12 @@ func (v *Vector) ComponentProduct(vector Vector) Vector {
 	return Vector{X: v.X * vector.X, Y: v.Y * vector.Y, Z: v.Z * vector.Z}
 }
 
-//ScalarProduct function returns value, that represent scalar product both vectors A and B (it can be given by formula Ax*Bx+Ay*By or |A|*|B|*cos(alfa))
+//ScalarProduct function returns value, that represent scalar product both vectors A and B (it can be given by formula Ax*Bx+Ay*By+Az*Bz or |A|*|B|*cos(alfa))
 func (v *Vector) ScalarProduct(vector Vector) float64 {
 	return vector.X*v.X + vector.Y*v.Y + vector.Z*v.Z
 }
 
-//Normalize function returns new Vector instance that represents normalized vector, given by formula N = [Ax / length, Ay / length]; where length = sqrt(Ax^2 + Xy^2)
+//Normalize function returns new Vector instance that represents normalized vector, given by formula N = [Ax / length, Ay / length]; where length = sqrt(x^2 + y^2 + z^2)
 func (v *Vector) Normalize() Vector {
 	vectorLength := math.Sqrt(v.X*v.X + v.Y*v.Y + v.Z*v.Z)
 	normalizedX := v.X / vectorLength
